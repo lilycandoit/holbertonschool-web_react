@@ -1,0 +1,20 @@
+# Node dependencies (covers all tasks)
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+
+# TS build info
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+
+# System/editor files
+.DS_Store
+.vscode/
