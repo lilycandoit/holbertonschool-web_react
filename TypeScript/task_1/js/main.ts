@@ -43,12 +43,17 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 
 console.log(printTeacher('John', 'Doe'));
 
-// create interface
+// create interface to describe instances
 interface StudentClassInterface {
   firstName: string;
   lastName: string;
   workOnHomework(): string;
   displayName(): string;
+}
+
+// interface describe constructor
+interface StudentClassConstructor {
+    new (firstName: string, lastName: string): StudentClassInterface;
 }
 
 // write a class
@@ -71,3 +76,15 @@ class StudentClass implements StudentClassInterface {
     return this.firstName;
   }
 }
+
+// === test===
+const createStudent = (
+  Ctor: StudentClassConstructor,
+  firstName: string,
+  lastName: string
+): StudentClassInterface => new Ctor(firstName, lastName);
+
+// ===== Test it =====
+const s1 = createStudent(StudentClass, 'Lily', 'Han');
+console.log(s1.displayName());      // Lily
+console.log(s1.workOnHomework());
