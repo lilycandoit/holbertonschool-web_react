@@ -54,3 +54,24 @@ console.log(createEmployee(1000));
 Director
 console.log(createEmployee('$500'));
 Director
+
+// === task6 ===
+// type predicate
+function isDirector(employee: any): employee is Director {
+    return employee instanceof Director;
+}
+
+// create execute function
+function executeWork(employee: Director | Teacher): string {
+    if (isDirector(employee)) {
+        return employee.workDirectorTasks();
+    } else {
+        return employee.workTeacherTasks();
+    }
+}
+
+// smoke test for task6:
+console.log(executeWork(createEmployee(200)));
+// Getting to work
+console.log(executeWork(createEmployee(1000)));
+// Getting to director tasks
