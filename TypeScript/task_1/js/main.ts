@@ -1,11 +1,11 @@
 // create Teacher interface
 interface Teacher {
-    readonly firstName: string;
-    readonly lastName: string;
-    fullTimeEmployee: boolean;
-    yearsOfExperience?: number;
-    location: string;
-    [key: string]: any;
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
 const teacher3: Teacher = {
@@ -38,7 +38,36 @@ interface printTeacherFunction {
 }
 
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
-    return `${firstName[0]}. ${lastName}`;
-}
+  return `${firstName[0]}. ${lastName}`;
+};
 
 console.log(printTeacher('John', 'Doe'));
+
+// create interface
+interface StudentClassInterface {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// write a class
+class StudentClass implements StudentClassInterface {
+  firstName: string; // declare the properties first
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName; // then assign to the params
+    this.lastName = lastName;
+  }
+  // shortcut (no need to declare properties)
+  // TS automatically creates this.firstName and this.lastName
+  // constructor(public firstName: string, public lastName: string) {}
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+  displayName(): string {
+    return this.firstName;
+  }
+}
