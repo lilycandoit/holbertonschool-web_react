@@ -75,3 +75,22 @@ console.log(executeWork(createEmployee(200)));
 // Getting to work
 console.log(executeWork(createEmployee(1000)));
 // Getting to director tasks
+
+
+// === task7 ===
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects): string {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    } else {
+        return 'Teaching History';
+    }
+}
+
+console.log(teachClass('Math'));
+// Teaching Math
+console.log(teachClass('History'));
+// Teaching History)
+console.log(teachClass('Musics'));
+// Error: Argument of type '"Musics"' is not assignable to parameter of type 'Subjects'.
